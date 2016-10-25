@@ -1,5 +1,5 @@
 
-#　Python文法チュートリアル
+#　Python文法チュートリアル　(Kazushi Yamashina)
 
 - このチュートリアルではプログラミング言語**Python**の基本的な文法とプログラムの実行方法を紹介します．
 - Pythonのご経験がある方はこのチュートリアルは必要ありませんがお持ちのPCにPythonを実行できる環境構築をお願い致します．
@@ -463,9 +463,7 @@ print person.calc_bmi()
 <a name="お問合せ・質問"></a>
 ## お問合せ・質問
 
-<font size="5">
 kazushi@virgo.is.utsunomiya-u.ac.jp
-</font>
-_at_を@に変えてください．
+
 
 [Contentsに戻る](#contents)

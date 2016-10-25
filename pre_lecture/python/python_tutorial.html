@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Python文法チュートリアル</title>
+    <style type="text/css">
+    html{font-family: sans-serif;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%}body{margin: 0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display: block}audio,canvas,progress,video{display: inline-block;vertical-align: baseline}audio:not([controls]){display: none;height: 0}[hidden],template{display: none}a{background: transparent}a:active,a:hover{outline: 0}abbr[title]{border-bottom: 1px dotted}b,strong{font-weight: bold}dfn{font-style: italic}h1{font-size: 2em;margin: 0.67em 0}mark{background: #ff0;color: #000}small{font-size: 80%}sub,sup{font-size: 75%;line-height: 0;position: relative;vertical-align: baseline}sup{top: -0.5em}sub{bottom: -0.25em}img{border: 0}svg:not(:root){overflow: hidden}figure{margin: 1em 40px}hr{box-sizing: content-box;height: 0}pre{overflow: auto}code,kbd,pre,samp{font-family: monospace, monospace;font-size: 1em}button,input,optgroup,select,textarea{color: inherit;font: inherit;margin: 0}button{overflow: visible}button,select{text-transform: none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance: button;cursor: pointer}button[disabled],html input[disabled]{cursor: default}button::-moz-focus-inner,input::-moz-focus-inner{border: 0;padding: 0}input{line-height: normal}input[type="checkbox"],input[type="radio"]{box-sizing: border-box;padding: 0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height: auto}input[type="search"]{-webkit-appearance: textfield;box-sizing: content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance: none}fieldset{border: 1px solid #c0c0c0;margin: 0 2px;padding: 0.35em 0.625em 0.75em}legend{border: 0;padding: 0}textarea{overflow: auto}optgroup{font-weight: bold}table{border-collapse: collapse;border-spacing: 0}td,th{padding: 0}*{box-sizing: border-box}input,select,textarea,button{font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"}body{min-width: 1020px;font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";color: #333;background-color: #fff}a{color: #4183c4;text-decoration: none}a:hover,a:active{text-decoration: underline}hr,.rule{height: 0;margin: 15px 0;overflow: hidden;background: transparent;border: 0;border-bottom: 1px solid #ddd}hr:before,.rule:before{display: table;content: ""}hr:after,.rule:after{display: table;clear: both;content: ""}h1,h2,h3,h4,h5,h6{margin-top: 15px;margin-bottom: 15px;line-height: 1.1}h1{font-size: 30px}h2{font-size: 21px}h3{font-size: 16px}h4{font-size: 14px}h5{font-size: 12px}h6{font-size: 11px}small{font-size: 90%}blockquote{margin: 0}.lead{margin-bottom: 30px;font-size: 20px;font-weight: 300;color: #555}.text-muted{color: #999}.text-danger{color: #bd2c00}.text-emphasized{font-weight: bold;color: #333}ul,ol{padding: 0;margin-top: 0;margin-bottom: 0}ol ol,ul ol{list-style-type: lower-roman}ul ul ol,ul ol ol,ol ul ol,ol ol ol{list-style-type: lower-alpha}dd{margin-left: 0}tt,code{font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;font-size: 12px}pre{margin-top: 0;margin-bottom: 0;font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace}#realtime .status{overflow: visible;position: absolute;top: -5px;left: 0;background: url("/public/images/github-status.png");width: 26px;height: 26px;display: block;margin: 0 5px 0 0}#realtime .up{background-position: 0 0}#realtime .problem{background-position: 0 -53px}#realtime .down{background-position: 0 -26px}.container{max-width: 920px;margin: 0 auto 20px auto}#header{background: #FAFAFA;background: -moz-linear-gradient(#FAFAFA, #EAEAEA);background: -webkit-linear-gradient(#FAFAFA, #EAEAEA);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#eaeaea')";border-bottom: 1px solid #CACACA;box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4),0 0 10px rgba(0, 0, 0, 0.1)}#markup{padding: 3px}#markup article{padding-top: 30px}.markdown-body{overflow: hidden;font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;font-size: 16px;line-height: 1.6;word-wrap: break-word}.markdown-body>*:first-child{margin-top: 0 !important}.markdown-body>*:last-child{margin-bottom: 0 !important}.markdown-body .absent{color: #c00}.markdown-body .anchor{position: absolute;top: 0;left: 0;display: block;padding-right: 6px;padding-left: 30px;margin-left: -30px}.markdown-body .anchor:focus{outline: none}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{position: relative;margin-top: 1em;margin-bottom: 16px;font-weight: bold;line-height: 1.4}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{display: none;color: #000;vertical-align: middle}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{padding-left: 8px;margin-left: -30px;text-decoration: none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{display: inline-block}.markdown-body h1 tt,.markdown-body h1 code,.markdown-body h2 tt,.markdown-body h2 code,.markdown-body h3 tt,.markdown-body h3 code,.markdown-body h4 tt,.markdown-body h4 code,.markdown-body h5 tt,.markdown-body h5 code,.markdown-body h6 tt,.markdown-body h6 code{font-size: inherit}.markdown-body h1{padding-bottom: 0.3em;font-size: 2.25em;line-height: 1.2;border-bottom: 1px solid #eee}.markdown-body h1 .anchor{line-height: 1}.markdown-body h2{padding-bottom: 0.3em;font-size: 1.75em;line-height: 1.225;border-bottom: 1px solid #eee}.markdown-body h2 .anchor{line-height: 1}.markdown-body h3{font-size: 1.5em;line-height: 1.43}.markdown-body h3 .anchor{line-height: 1.2}.markdown-body h4{font-size: 1.25em}.markdown-body h4 .anchor{line-height: 1.2}.markdown-body h5{font-size: 1em}.markdown-body h5 .anchor{line-height: 1.1}.markdown-body h6{font-size: 1em;color: #777}.markdown-body h6 .anchor{line-height: 1.1}.markdown-body p,.markdown-body blockquote,.markdown-body ul,.markdown-body ol,.markdown-body dl,.markdown-body table,.markdown-body pre{margin-top: 0;margin-bottom: 16px}.markdown-body hr{height: 4px;padding: 0;margin: 16px 0;background-color: #e7e7e7;border: 0 none}.markdown-body ul,.markdown-body ol{padding-left: 2em}.markdown-body ul.no-list,.markdown-body ol.no-list{padding: 0;list-style-type: none}.markdown-body ul ul,.markdown-body ul ol,.markdown-body ol ol,.markdown-body ol ul{margin-top: 0;margin-bottom: 0}.markdown-body li>p{margin-top: 16px}.markdown-body dl{padding: 0}.markdown-body dl dt{padding: 0;margin-top: 16px;font-size: 1em;font-style: italic;font-weight: bold}.markdown-body dl dd{padding: 0 16px;margin-bottom: 16px}.markdown-body blockquote{padding: 0 15px;color: #777;border-left: 4px solid #ddd}.markdown-body blockquote>:first-child{margin-top: 0}.markdown-body blockquote>:last-child{margin-bottom: 0}.markdown-body table{display: block;width: 100%;overflow: auto;word-break: normal;word-break: keep-all}.markdown-body table th{font-weight: bold}.markdown-body table th,.markdown-body table td{padding: 6px 13px;border: 1px solid #ddd}.markdown-body table tr{background-color: #fff;border-top: 1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color: #f8f8f8}.markdown-body img{max-width: 100%;box-sizing: border-box}.markdown-body span.frame{display: block;overflow: hidden}.markdown-body span.frame>span{display: block;float: left;width: auto;padding: 7px;margin: 13px 0 0;overflow: hidden;border: 1px solid #ddd}.markdown-body span.frame span img{display: block;float: left}.markdown-body span.frame span span{display: block;padding: 5px 0 0;clear: both;color: #333}.markdown-body span.align-center{display: block;overflow: hidden;clear: both}.markdown-body span.align-center>span{display: block;margin: 13px auto 0;overflow: hidden;text-align: center}.markdown-body span.align-center span img{margin: 0 auto;text-align: center}.markdown-body span.align-right{display: block;overflow: hidden;clear: both}.markdown-body span.align-right>span{display: block;margin: 13px 0 0;overflow: hidden;text-align: right}.markdown-body span.align-right span img{margin: 0;text-align: right}.markdown-body span.float-left{display: block;float: left;margin-right: 13px;overflow: hidden}.markdown-body span.float-left span{margin: 13px 0 0}.markdown-body span.float-right{display: block;float: right;margin-left: 13px;overflow: hidden}.markdown-body span.float-right>span{display: block;margin: 13px auto 0;overflow: hidden;text-align: right}.markdown-body code,.markdown-body tt{padding: 0;padding-top: 0.2em;padding-bottom: 0.2em;margin: 0;font-size: 85%;background-color: rgba(0,0,0,0.04);border-radius: 3px}.markdown-body code:before,.markdown-body code:after,.markdown-body tt:before,.markdown-body tt:after{letter-spacing: -0.2em;content: "\00a0"}.markdown-body code br,.markdown-body tt br{display: none}.markdown-body del code{text-decoration: inherit}.markdown-body pre>code{padding: 0;margin: 0;font-size: 100%;word-break: normal;white-space: pre;background: transparent;border: 0}.markdown-body .highlight{margin-bottom: 16px}.markdown-body .highlight pre,.markdown-body pre{padding: 16px;overflow: auto;font-size: 85%;line-height: 1.45;background-color: #f7f7f7;border-radius: 3px}.markdown-body .highlight pre{margin-bottom: 0;word-break: normal}.markdown-body pre{word-wrap: normal}.markdown-body pre code,.markdown-body pre tt{display: inline;max-width: initial;padding: 0;margin: 0;overflow: initial;line-height: inherit;word-wrap: normal;background-color: transparent;border: 0}.markdown-body pre code:before,.markdown-body pre code:after,.markdown-body pre tt:before,.markdown-body pre tt:after{content: normal}.markdown-body kbd{display: inline-block;padding: 3px 5px;font-size: 11px;line-height: 10px;color: #555;vertical-align: middle;background-color: #fcfcfc;border: solid 1px #ccc;border-bottom-color: #bbb;border-radius: 3px;box-shadow: inset 0 -1px 0 #bbb}.codehilite{background: #ffffff}.codehilite .c{color: #999988;font-style: italic}.codehilite .err{color: #a61717;background-color: #e3d2d2}.codehilite .k{color: #000000;font-weight: bold}.codehilite .o{color: #000000;font-weight: bold}.codehilite .cm{color: #999988;font-style: italic}.codehilite .cp{color: #999999;font-weight: bold}.codehilite .c1{color: #999988;font-style: italic}.codehilite .cs{color: #999999;font-weight: bold;font-style: italic}.codehilite .gd{color: #000000;background-color: #ffdddd}.codehilite .gd .x{color: #000000;background-color: #ffaaaa}.codehilite .ge{color: #000000;font-style: italic}.codehilite .gr{color: #aa0000}.codehilite .gh{color: #999999}.codehilite .gi{color: #000000;background-color: #ddffdd}.codehilite .gi .x{color: #000000;background-color: #aaffaa}.codehilite .go{color: #888888}.codehilite .gp{color: #555555}.codehilite .gs{font-weight: bold}.codehilite .gu{color: #aaaaaa}.codehilite .gt{color: #aa0000}.codehilite .kc{color: #000000;font-weight: bold}.codehilite .kd{color: #000000;font-weight: bold}.codehilite .kp{color: #000000;font-weight: bold}.codehilite .kr{color: #000000;font-weight: bold}.codehilite .kt{color: #445588;font-weight: bold}.codehilite .m{color: #009999}.codehilite .s{color: #d14}.codehilite .na{color: #008080}.codehilite .nb{color: #0086B3}.codehilite .nc{color: #445588;font-weight: bold}.codehilite .no{color: #008080}.codehilite .ni{color: #800080}.codehilite .ne{color: #990000;font-weight: bold}.codehilite .nf{color: #990000;font-weight: bold}.codehilite .nn{color: #555555}.codehilite .nt{color: #000080}.codehilite .nv{color: #008080}.codehilite .ow{color: #000000;font-weight: bold}.codehilite .w{color: #bbbbbb}.codehilite .mf{color: #009999}.codehilite .mh{color: #009999}.codehilite .mi{color: #009999}.codehilite .mo{color: #009999}.codehilite .sb{color: #d14}.codehilite .sc{color: #d14}.codehilite .sd{color: #d14}.codehilite .s2{color: #d14}.codehilite .se{color: #d14}.codehilite .sh{color: #d14}.codehilite .si{color: #d14}.codehilite .sx{color: #d14}.codehilite .sr{color: #009926}.codehilite .s1{color: #d14}.codehilite .ss{color: #990073}.codehilite .bp{color: #999999}.codehilite .vc{color: #008080}.codehilite .vg{color: #008080}.codehilite .vi{color: #008080}.codehilite .il{color: #009999}
+    </style>
+    <style type="text/css">
+      .markdown-body hr{background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC")}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="markup">
+        <article id="content" class="markdown-body">
+          <h1>Python文法チュートリアル<br><font size="5pt">Kazushi Yamashina</font></h1>
+<ul>
+<li>このチュートリアルではプログラミング言語<strong>Python</strong>の基本的な文法とプログラムの実行方法を紹介します．</li>
+<li>Pythonのご経験がある方はこのチュートリアルは必要ありませんがお持ちのPCにPythonを実行できる環境構築をお願い致します．</li>
+</ul>
+<p><a name="contents"></a></p>
+<h2>Contents</h2>
+<p>各項目からこの一覧に戻れるようになっています．</p>
+<!-- MarkdownTOC autolink="true" autoanchor="true" bracket="round" depth="6"-->
+
+<ul>
+<li><a href="#pythonを始める準備">Pythonを始める準備</a></li>
+<li><a href="#pythonのプログラムを実行する">Pythonのプログラムを実行する</a></li>
+<li><a href="#pythonの文法">Pythonの文法</a><ul>
+<li><a href="#インデントとコメントアウト">インデントとコメントアウト</a></li>
+<li><a href="#変数宣言と標準出力">変数宣言と標準出力</a></li>
+<li><a href="#数値演算">数値演算</a></li>
+<li><a href="#条件分岐文（if-elif-else）">条件分岐文（if, elif, else）</a></li>
+<li><a href="#繰り返し文">繰り返し文</a></li>
+<li><a href="#リスト">リスト</a></li>
+<li><a href="#関数">関数</a></li>
+<li><a href="#クラス">クラス</a></li>
+</ul>
+</li>
+<li><a href="#練習課題">練習課題</a></li>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#お問合せ・質問">お問合せ・質問</a></li>
+</ul>
+<!-- /MarkdownTOC -->
+
+<p><a name="pythonを始める準備"></a></p>
+<h2>Pythonを始める準備</h2>
+<p>下記に示すのは一般的なPythonの実行環境の一覧です．  </p>
+<table>
+<thead>
+<tr>
+<th>Python実行環境</th>
+<th>動作OS</th>
+<th>インストール方法(参考Webサイト)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.python.org/">Python</a> (おすすめ)</td>
+<td>Windows</td>
+<td><a href="http://qiita.com/maisuto/items/404e5803372a44419d60">windows環境へのpythonインストール</a></td>
+</tr>
+<tr>
+<td></td>
+<td>OS X</td>
+<td>MacのOSではPythonがプリインストールされています（MacのTerminalで実行する）</td>
+</tr>
+<tr>
+<td></td>
+<td>Ubuntu</td>
+<td>sudo apt-get isntall python</td>
+</tr>
+<tr>
+<td><a href="https://www.cygwin.com/">Cygwin</a></td>
+<td>Windows</td>
+<td><a href="http://musashi.osdn.jp/cygwin/cygwin.html">Cygwinのインストール方法&amp;設定方法</a></td>
+</tr>
+</tbody>
+</table>
+<p><a href="#contents">Contentsに戻る</a></p>
+<p><a name="pythonのプログラムを実行する"></a></p>
+<h2>Pythonのプログラムを実行する</h2>
+<p>Pythonのプログラムを記述するためのファイル拡張子は<code>.py</code>です．テキストファイルを作成し，拡張子を<code>.py</code>に変更してください．</p>
+<div class="codehilite"><pre><span class="c1">#hello.py</span>
+<span class="k">print</span> <span class="s">&quot;hello world&quot;</span>
+</pre></div>
+
+
+<p>例えば上に示すような<em>hello world</em>と出力するための簡単なプログラムhello.pyを実行してみましょう．</p>
+<div class="codehilite"><pre>python hello.py
+hello world
+</pre></div>
+
+
+<p>出力結果には<strong>hello world</strong>と出力されました．Pythonではこのように<code>python プログラム名</code>というように実行します．  </p>
+<p><a href="#contents">Contentsに戻る</a></p>
+<p><a name="pythonの文法"></a></p>
+<h2>Pythonの文法</h2>
+<p>Pythonの基本的な文法を紹介します．また、コード例中の<code># ==== result ====</code>は実行した際の出力結果です．<br>
+<code># ==== result ====</code>がある例では、そのまま実行していただければ基本的には実行できるかと思います．  </p>
+<p><a name="インデントとコメントアウト"></a></p>
+<h3>インデントとコメントアウト</h3>
+<p>Pythonにおけるインデントはほかの言語と比べ，比較的重要な役目があり，C言語やJavaなどの<strong>{ }</strong>と同じ働きをします．つまり，ブロック構造をインデントで表現します．これがPythonにおける特長の１つです．
+例えばC言語で以下のようなif文の構造があるとします．</p>
+<div class="codehilite"><pre><span class="c1">// C</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">A</span> <span class="o">&lt;</span> <span class="n">B</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;A is smaller than B</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">B</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">A</span> <span class="o">&gt;</span> <span class="n">B</span> <span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;A is larger than B</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;A and B are equal </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>これをPythonにおいて表現すると，以下のようになります．</p>
+<div class="codehilite"><pre><span class="c1"># Python</span>
+<span class="k">if</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="n">B</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;A is smaller than B&quot;</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">B</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">elif</span> <span class="n">A</span> <span class="o">&gt;</span> <span class="n">B</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;A is larger than B&quot;</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;A and B are equal&quot;</span>
+</pre></div>
+
+
+<p>このようにif文でしたら，条件文の下に同じレベルのインデントで処理を書くとブロック構造ができます．
+この際，スペースとタブの混在にすると実行エラーとなってしまいますので注意してください．<br>
+またPythonでは文頭に<code>#</code>をつけるとコメントになります．</p>
+<p><a href="#contents">Contentsに戻る</a></p>
+<p><a name="変数宣言と標準出力"></a></p>
+<h3>変数宣言と標準出力</h3>
+<p>Pythonでは明確な変数宣言は必要ありません．なお，リストなどの機能を使うときは，初期化として宣言する場合もあります（後で説明します）．<br>
+それゆえに，変数に任意の値（文字含む）を代入するとインタプリタが自動的に型を認識してくれます．</p>
+<div class="codehilite"><pre><span class="n">string</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span>
+<span class="n">num_a</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">num_b</span> <span class="o">=</span> <span class="mf">10.21</span>
+</pre></div>
+
+
+<p>またPythonにおける標準出力関数はprint文を用います．printという記述のあと，ダブルコーテーションで囲むとそれが文字列として出力されます．<br>
+また，先ほどの変数を指定しても，各要素の中身が表示可能です．</p>
+<div class="codehilite"><pre><span class="k">print</span> <span class="s">&quot;Hello World&quot;</span>
+<span class="c1"># ==== result ====</span>
+<span class="c1"># Hello World</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span>
+<span class="n">num_a</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">num_b</span> <span class="o">=</span> <span class="mf">10.21</span>
+
+<span class="k">print</span> <span class="n">string</span>
+<span class="k">print</span> <span class="n">num_a</span>
+<span class="k">print</span> <span class="n">num_b</span>
+<span class="c1"># ==== result ====</span>
+<span class="c1"># Hello World</span>
+<span class="c1"># 100</span>
+<span class="c1"># 10.21</span>
+</pre></div>
+
+
+<p>また，C言語のprintf関数と同じようにフォーマットを指定して，英数字と文字列を交えて出力することもできます．</p>
+<div class="codehilite"><pre><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Taro&quot;</span>
+<span class="n">years</span> <span class="o">=</span> <span class="mi">23</span>
+
+<span class="k">print</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s"> is </span><span class="si">%d</span><span class="s"> years old&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">years</span><span class="p">)</span>
+<span class="c1"># ==== result ====</span>
+<span class="c1"># Taro is 23 years old</span>
+</pre></div>
+
+
+<p>また，文字列として宣言した<em>数字</em>を数値へ変換することも可能であり，その逆も可能です．</p>
+<div class="codehilite"><pre><span class="n">number</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s">&quot;100&quot;</span>
+
+<span class="c1"># string =&gt; integer number</span>
+<span class="nb">int</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+<span class="c1"># integer number =&gt; string</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+
+
+<p><a href="#contents">Contentsに戻る</a></p>
+<p><a name="数値演算"></a></p>
+<h3>数値演算</h3>
+<p>Pythonでもほかの言語と同様，数値演算をすることが可能です．下記の例では<code># -*- coding: utf-8 -*-</code>という記述がありますが，こちらはソースコード中の文字のエンコードを指定する記述です．特に，ソースコード中に日本語を含む場合は書きます．</p>
+<div class="codehilite"><pre><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">print</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="c1"># 加算</span>
+<span class="k">print</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="c1"># 減算</span>
+<span class="k">print</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="c1"># 乗算</span>
+<span class="k">print</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span> <span class="c1"># 除算</span>
+
+<span class="c1"># ==== result ====</span>
+<span class="c1"># 25</span>
+<span class="c1"># 15</span>
+<span class="c1"># 100</span>
+<span class="c1"># 4</span>
+</pre></div>
+
+
+<p><a href="#contents">Contentsに戻る</a></p>
+<p><a name="条件分岐文（if-elif-else）"></a></p>
+<h3>条件分岐文（if, elif, else）</h3>
+<p>Pythonにおける条件分岐文は<code>if</code>，<code>elif</code>，<code>else</code>を用いて構成します．この際，条件文の後にコロン<code>:</code>をつけるのを忘れないでください．</p>
+<div class="codehilite"><pre><span class="n">A</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">B</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="k">if</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="n">B</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;A is smaller than B&quot;</span>
+<span class="k">elif</span> <span class="n">A</span> <span class="o">&gt;</span> <span class="n">B</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;A is larger than B&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;A and B are equal&quot;</span>
+
+<span class="c1"># ==== result ====</span>
+<span class="c1"># A is smaller than B</span>
+</pre></div>
+
+
+<p>なお、Pythonにおける論理演算子が少し特殊です．例えばC言語において以下のような条件分岐構造があった場合、</p>
+<div class="codehilite"><pre><span class="k">if</span> <span class="p">(</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="n">B</span> <span class="o">&amp;&amp;</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">){</span>
+    <span class="c1">//processing</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="n">A</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">B</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">){</span>
+    <span class="c1">//processing</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Pythonで記述すると以下のようになります．</p>
+<div class="codehilite"><pre><span class="k">if</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="n">B</span> <span class="ow">and</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="c1"># processing</span>
+<span class="k">elif</span> <span class="n">A</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">B</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="c1"># processing</span>
+</pre></div>
+
+
+<p><a href="#contents">Contentsに戻る</a></p>
+<p><a name="繰り返し文"></a></p>
+<h3>繰り返し文</h3>
+<p>Pythonにおける繰り返し文は，for文とwhile文を使います．<br>
+for文では<strong>range関数</strong>を使うのが便利です．</p>
+<div class="codehilite"><pre><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># range(start_index, cycle)</span>
+<span class="c1"># : 第1引数にはループインデックスの開始番号、第2引数には繰り返し回数を指定</span>
+<span class="c1"># 以下のように記述することによって、インデックス変数となる．</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;i = &quot;</span><span class="p">,</span> <span class="n">i</span>
+<span class="c1"># ==== result ====</span>
+<span class="c1"># i =  0</span>
+<span class="c1"># i =  1</span>
+<span class="c1"># i =  2</span>
+<span class="c1"># i =  3</span>
+<span class="c1"># i =  4</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;i = &quot;</span><span class="p">,</span> <span class="n">i</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="c1"># ==== result ====</span>
+<span class="c1"># i =  0</span>
+<span class="c1"># i =  1</span>
+<span class="c1"># i =  2</span>
+<span class="c1"># i =  3</span>
+<span class="c1"># i =  4</span>
+</pre></div>
+
+
+<p><a href="#contents">Contentsに戻る</a></p>
+<p><a name="リスト"></a></p>
+<h3>リスト</h3>
+<p>リストを使用する場合、「最初に初期化する値はないけどリストとして使いたい」という場合、変数の後に<code>= []</code>という風に記述すると任意のリスト宣言となります．リストは、C言語でいう<strong>配列</strong>と似たものです．リストに任意の要素を追加したい場合、<strong>append関数</strong>を使用します．</p>
+<div class="codehilite"><pre><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="n">list_x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># 5回のループでそれぞれiの値をlist_xに追加しています．</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="c1"># append() : 配列へ追加したい要素を引数として指定する</span>
+    <span class="n">list_x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="c1"># 以下のように記述すると、list_xの中にあるすべての要素に対して処理を行うfor文となります．</span>
+<span class="c1"># これはin演算子の特徴であり、inの後にある対象オブジェクトの1要素がelemという変数に代入されていきます．</span>
+<span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">list_x</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">elem</span>
+<span class="c1"># ==== result ====</span>
+<span class="c1"># 0</span>
+<span class="c1"># 1</span>
+<span class="c1"># 2</span>
+<span class="c1"># 3</span>
+<span class="c1"># 4</span>
+</pre></div>
+
+
+<p>もちろん、最初の初期化も可能です．またappend関数以外にもリストで使用する関数を紹介します．</p>
+<div class="codehilite"><pre><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="n">list_x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># insert() : インデックスを指定して挿入</span>
+<span class="n">list_x</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;list_x.insert(2,10) : &quot;</span><span class="p">,</span> <span class="n">list_x</span>
+
+<span class="c1"># remove() : リスト中に指定した引数の値があったら削除</span>
+<span class="n">list_x</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;list_x.remove(3) : &quot;</span><span class="p">,</span> <span class="n">list_x</span>
+
+<span class="c1"># pop() : リストの末尾を削除．引数を指定すると、そのインデックスの要素が削除される．</span>
+<span class="n">list_x</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&quot;list_x.pop() : &quot;</span><span class="p">,</span> <span class="n">list_x</span>
+
+<span class="c1"># index() : 引数で指定した値のインデックスを取得</span>
+<span class="k">print</span> <span class="s">&quot;list_x.index(10) : &quot;</span><span class="p">,</span> <span class="n">list_x</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># インデックスを指定しての値の変更</span>
+<span class="n">list_x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">print</span> <span class="s">&quot;list_x[1] = 100 : &quot;</span><span class="p">,</span> <span class="n">list_x</span>
+
+<span class="c1"># len() リストのd長さを取得</span>
+<span class="k">print</span> <span class="s">&quot;list_x length : &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_x</span><span class="p">)</span>
+
+<span class="c1"># ==== result ====</span>
+<span class="c1"># list_x.insert(2,10) :  [0, 1, 10, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+<span class="c1"># list_x.remove(3) :  [0, 1, 10, 2, 4, 5, 6, 7, 8, 9]</span>
+<span class="c1"># list_x.pop() :  [0, 1, 10, 2, 4, 5, 6, 7, 8]</span>
+<span class="c1"># list_x.index(10) :  2</span>
+<span class="c1"># list_x[1] = 100 :  [0, 100, 10, 2, 4, 5, 6, 7, 8]</span>
+<span class="c1"># list_x length :  9</span>
+</pre></div>
+
+
+<p><a href="#contents">Contentsに戻る</a>
+<a name="関数"></a></p>
+<h3>関数</h3>
+<p>Pythonにおいて関数宣言をする際は<code>def</code>を使用します．defの後に関数名、また<code>( )</code>の中には引数を指定します．<br>
+<code>( )</code>の後にコロン<code>:</code>をつけるのを忘れないでください．</p>
+<div class="codehilite"><pre><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># 引数なしの関数</span>
+<span class="k">def</span> <span class="nf">print_hello</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s">&quot;hello&quot;</span>
+
+<span class="c1"># 引数ありの関数</span>
+<span class="c1"># 戻り値はreturnで返す</span>
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span>
+
+<span class="c1"># 関数に与える引数は以下のようにすることで初期化できる</span>
+<span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;no name&quot;</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="mi">50</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;name: </span><span class="si">%s</span><span class="s"> age: </span><span class="si">%d</span><span class="s"> height: </span><span class="si">%d</span><span class="s"> weight: </span><span class="si">%d</span><span class="s">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+
+<span class="c1">#　各関数の実行</span>
+<span class="n">print_hello</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="n">add</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="c1"># 引数なし</span>
+<span class="n">print_info</span><span class="p">()</span>
+<span class="c1"># 引数あり</span>
+<span class="n">print_info</span><span class="p">(</span><span class="s">&quot;taro&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+
+<span class="c1"># ==== result ====</span>
+<span class="c1"># hello</span>
+<span class="c1"># 400</span>
+<span class="c1"># name: no name age: 0 height: 100 weight: 50</span>
+<span class="c1"># name: taro age: 20 height: 170 weight: 60</span>
+</pre></div>
+
+
+<p><a href="#contents">Contentsに戻る</a>
+<a name="クラス"></a></p>
+<h3>クラス</h3>
+<p>Pythonのクラス宣言は関数宣言と似ています．書式としては<code>class クラス名(継承するクラス"省略可")：</code>という風に宣言します．<br>
+以下に実際の例を示します．
+<code>__init__</code>はPythonにおいてクラスを定義する際、多くの場合定義する関数です．<br>
+この関数ではクラスの各メンバ変数の初期化を行います．つまり，コンストラクタのような働きをします．<br>
+また、
+それぞれのメンバ関数、<code>__init__</code>の引数にある<strong>self</strong>はクラス自身のインスタンスを表しているため各メンバ関数に必ず必要な引数です．  </p>
+<div class="codehilite"><pre><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="mi">50</span><span class="p">):</span>
+        <span class="c1"># メンバ変数の初期化</span>
+        <span class="c1"># メンバ変数にする場合は必ずselfをつける</span>
+        <span class="c1"># selfがついている変数スコープはクラス内すべてにわたる</span>
+        <span class="c1"># selfをつけない場合の変数スコープはその関数内に留まる</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classname</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bmi</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># メンバ関数例</span>
+    <span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;name: </span><span class="si">%s</span><span class="s"> age: </span><span class="si">%d</span><span class="s"> height: </span><span class="si">%d</span><span class="s"> weight: </span><span class="si">%d</span><span class="s">&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">set_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classname</span><span class="p">):</span>
+        <span class="c1"># メンバ変数にアクセスする場合</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classname</span> <span class="o">=</span> <span class="n">classname</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classname</span>
+
+    <span class="k">def</span> <span class="nf">calc_bmi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="o">/</span><span class="mf">100.0</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bmi</span> <span class="o">=</span> <span class="n">weight</span> <span class="o">/</span> <span class="p">(</span><span class="n">height</span><span class="o">*</span><span class="n">height</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bmi</span>
+
+<span class="c1"># クラスのオブジェクトを作成</span>
+<span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s">&quot;taro&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+
+<span class="c1"># 各メンバ関数の実行</span>
+<span class="n">person</span><span class="o">.</span><span class="n">print_info</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">person</span><span class="o">.</span><span class="n">set_class</span><span class="p">(</span><span class="s">&quot;1-B&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">person</span><span class="o">.</span><span class="n">calc_bmi</span><span class="p">()</span>
+</pre></div>
+
+
+<p><a href="#contents">Contentsに戻る</a></p>
+<p><a name="練習課題"></a></p>
+<h2>練習課題</h2>
+<p>基本的に<a href="http://www.python-izm.com/">このサイト</a>をみればPythonのことについてはわかります。</p>
+<ol>
+<li>1から50までの数を足して出力</li>
+<li>バブルソートをしてみる<ul>
+<li>入力数字列は<code>input_array = [98,32,1,66,23,44,232,56,6,77]</code>とする</li>
+</ul>
+</li>
+<li>フィボナッチ数列を関数にしてみる<ul>
+<li>仕様<ul>
+<li><strong>引数</strong>を与えると<strong>返り値</strong>としてそのインデックスの値が帰ってくる</li>
+<li>例 <code>print fibo(1)</code> 結果 <code>1</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>ファイル入出力を</strong>してみる<ul>
+<li>仕様<ul>
+<li>input.txtというファイルを用意して中身に任意の文字列を書いておく</li>
+<li>中身をoutput.txtというファイルで出力</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>コマンドライン引数</strong>を取ってそれに応じた出力をする<ul>
+<li>仕様<ul>
+<li>プログラムの実行時に<code>python sample.py 2</code>の2をコマンドライン引数という</li>
+<li>与えられた数字に応じて決まった文字列を出力する。(3パターンほど)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>クラス</strong>を作る<ul>
+<li><code>ckass.py</code>を参考に下記の機能を満たす<strong>メソッド</strong>を実装する<ul>
+<li>名前をセット/取得する</li>
+<li>数学の点数をセット/取得する</li>
+<li>英語の点数をセット/取得する</li>
+<li>平均を計算して取得する</li>
+<li>全ての情報を出力する</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>辞書を作ってみる（英語のみ）<ul>
+<li>仕様<ul>
+<li>登録モード<code>python dictionary.py register 単語　意味</code></li>
+<li>検索モード<code>python dictionary.py search 単語</code></li>
+<li>削除モード<code>python dictionary.py 単語</code></li>
+<li>辞書データはどのようにしても可能<ul>
+<li>例えば：アルファベット順にテキストファイルを分けてそこに保存</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><a href="#contents">Contentsに戻る</a></p>
+<p><a name="reference"></a></p>
+<h2>Reference</h2>
+<ul>
+<li><a href="http://www.python-izm.com/">Python入門から応用までの学習サイト</a></li>
+</ul>
+<p><a href="#contents">Contentsに戻る</a></p>
+<p><a name="お問合せ・質問"></a></p>
+<h2>お問合せ・質問</h2>
+<p>kazushi@virgo.is.utsunomiya-u.ac.jp</p>
+<p><a href="#contents">Contentsに戻る</a></p>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>
