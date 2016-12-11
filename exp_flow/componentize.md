@@ -1,13 +1,22 @@
-# 被験者実験手順指導書
-
 # PWM回路のコンポーネント化
 
 これらより、`~/exp_dir`のことをワークスペースと呼びます。
-ワークスペースに`pwm_ctl.v`と`xillinux-eval-zedboard-1.3c`があるか確認してください。
+ワークスペースに以下のファイルがあるか確認してください。
+
+- pwm_ctl.v
+- bootgen.zip
+- xillinux-eval-zedbaord-1.3c_built.tar.gz
+
+アーカイブファイルの展開をします。
+
+```
+$ unzip bootgen.zip
+$ tar zxvf xillinux-eval-zedbaord-1.3c_built.tar.gz
+```
 
 ```
 $ ls ~/exp_dir
-pwm_ctl.v xillinux-eval-zedboard-1.3c
+pwm_ctl.v bootgen.zip xillinux-eval-zedbaord-1.3c_built.tar.gz
 ```
 
 cReCompが動作するか確認します。
@@ -36,11 +45,11 @@ Options:
 - 機能2：FPGA上の回路へ、ソフトウェアからパラメータを渡せるようにする
 - 機能3：ROSのメッセージによって回路へのパラメータを渡せるようにする
 
-<!-- 図 -->
+<img src="pic/pwm_comp.png">
 
 図のようにコンポーネントはソフトウェアとハードウェアの混合システムとなっています。  
-特に、cReCompではハードウェアインターフェイスとソフトウェアインターフェイスを設定に応じて自動生成することができ、  
-開発者の皆さんはVerilog HDLの記述やデータをやり取りするためのソフトウェア記述はいりません。  
+特に、cReCompではハードウェアインターフェイスとソフトウェアインターフェイスを設定に応じて自動生成することができ、開発者の皆さんはVerilog HDLの記述やデータをやり取りするためのソフトウェア記述はいりません。  
+
 はじめに、以下のコマンドで設定ファイルを作成します。
 `Generate config.py successfully`が出力されたら成功です。
 
@@ -151,8 +160,7 @@ cp_pwm_ctl.add_output("en_out",1)
 
 そこで`set_snd_cycle()`を使用することでHW→SWへのデータ送信回数を設定できます。
 
-また、PWM回路へソフトウェアから受信したデータを渡さなければなりません。  
-したがって、前の編集で追加したレジスタ`para_in`と`dir_in`をデータ受信用の信号として設定します。
+前の編集で追加したレジスタ`para_in`と`dir_in`をデータ受信用の信号として設定します。
 
 したがって、設定すべき内容は以下のようになります。
 
