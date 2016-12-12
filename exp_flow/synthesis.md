@@ -9,10 +9,10 @@ $ source /opt/Xilinx/Vivado/2014.4/settings64.sh
 $ vivado
 ```
 
-起動したら以下のような**Tools -> Run Tcl Scripts**から、  
+起動したら**Tools -> Run Tcl Scripts**から、  
 `~/exp_dir/xillinux-eval-zedboard-1.3c/verilog/xillydemo-vivado.tcl`を選択して、実行します。
 
-<img src="pic/vivado_open.png" width="70%">
+<img src="pic/run_tcl.png" width="50%">
 
 **Add Sources -> Add or create design sources**を選択し、**Next**します。
 前の作業で生成したハードウェアインターフェイスをインポートします。
@@ -30,7 +30,7 @@ $ vivado
 
 ハードウェアをインポートすると以下の**Design Sources**の階層構造は以下のようになります。
 
-<img src="pic/vivado_added.png" width = "70%">
+<img src="pic/vivado_added.png" width="50%">
 
 **Design Sources**の**component_pwm_ctl**をダブルクリックで開きます。
 
@@ -132,7 +132,7 @@ module xillydemo
 
 また、制約ファイルの編集をします。**Design Sources**の**Constraints**をクリックし、**xillydemo.xdc**を開きます。
 
-<img src="pic/select_xdc.png" width = "70%">
+<img src="pic/select_xdc.png" width = "50%">
 
 90行目あたりを以下のように編集します。
 
