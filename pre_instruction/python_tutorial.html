@@ -14,7 +14,7 @@
     <div class="container">
       <div id="markup">
         <article id="content" class="markdown-body">
-          <h1>Python文法チュートリアル<br><font size="5pt">Kazushi Yamashina</font></h1>
+          <h1>Python文法チュートリアル</h1>
 <ul>
 <li>このチュートリアルではプログラミング言語<strong>Python</strong>の基本的な文法とプログラムの実行方法を紹介します．</li>
 <li>Pythonのご経験がある方はこのチュートリアルは必要ありませんがお持ちのPCにPythonを実行できる環境構築をお願い致します．</li>
@@ -359,7 +359,7 @@ for文では<strong>range関数</strong>を使うのが便利です．</p>
 <span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;no name&quot;</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="mi">50</span><span class="p">):</span>
     <span class="k">print</span> <span class="s">&quot;name: </span><span class="si">%s</span><span class="s"> age: </span><span class="si">%d</span><span class="s"> height: </span><span class="si">%d</span><span class="s"> weight: </span><span class="si">%d</span><span class="s">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
 
-<span class="c1">#　各関数の実行</span>
+<span class="c1"># 各関数の実行</span>
 <span class="n">print_hello</span><span class="p">()</span>
 
 <span class="k">print</span> <span class="n">add</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
@@ -383,9 +383,10 @@ for文では<strong>range関数</strong>を使うのが便利です．</p>
 <p>Pythonのクラス宣言は関数宣言と似ています．書式としては<code>class クラス名(継承するクラス"省略可")：</code>という風に宣言します．<br>
 以下に実際の例を示します．
 <code>__init__</code>はPythonにおいてクラスを定義する際、多くの場合定義する関数です．<br>
-この関数ではクラスの各メンバ変数の初期化を行います．つまり，コンストラクタのような働きをします．<br>
+この関数ではクラスの各メンバ変数(<code>self.*</code>)
+の初期化を行います．つまり，コンストラクタのような働きをします．<br>
 また、
-それぞれのメンバ関数、<code>__init__</code>の引数にある<strong>self</strong>はクラス自身のインスタンスを表しているため各メンバ関数に必ず必要な引数です．  </p>
+それぞれのメンバ関数、<code>__init__</code>関数の引数にある<strong>self</strong>はクラス自身のインスタンスを表しているため各メンバ関数に必ず必要な引数です．  </p>
 <div class="codehilite"><pre><span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
@@ -430,61 +431,35 @@ for文では<strong>range関数</strong>を使うのが便利です．</p>
 <p><a name="練習課題"></a></p>
 <h2>練習課題</h2>
 <p>基本的に<a href="http://www.python-izm.com/">このサイト</a>をみればPythonのことについてはわかります。</p>
-<ol>
-<li>1から50までの数を足して出力</li>
-<li>バブルソートをしてみる<ul>
-<li>入力数字列は<code>input_array = [98,32,1,66,23,44,232,56,6,77]</code>とする</li>
-</ul>
-</li>
-<li>フィボナッチ数列を関数にしてみる<ul>
-<li>仕様<ul>
-<li><strong>引数</strong>を与えると<strong>返り値</strong>としてそのインデックスの値が帰ってくる</li>
-<li>例 <code>print fibo(1)</code> 結果 <code>1</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>ファイル入出力を</strong>してみる<ul>
-<li>仕様<ul>
-<li>input.txtというファイルを用意して中身に任意の文字列を書いておく</li>
-<li>中身をoutput.txtというファイルで出力</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>コマンドライン引数</strong>を取ってそれに応じた出力をする<ul>
-<li>仕様<ul>
-<li>プログラムの実行時に<code>python sample.py 2</code>の2をコマンドライン引数という</li>
-<li>与えられた数字に応じて決まった文字列を出力する。(3パターンほど)</li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
 <li><strong>クラス</strong>を作る<ul>
-<li><code>ckass.py</code>を参考に下記の機能を満たす<strong>メソッド</strong>を実装する<ul>
+<li><code>class Student</code>を参考に下記の機能を満たす<strong>メソッド</strong>を実装し、動作を確認しましょう。<ul>
 <li>名前をセット/取得する</li>
 <li>数学の点数をセット/取得する</li>
 <li>英語の点数をセット/取得する</li>
 <li>平均を計算して取得する</li>
-<li>全ての情報を出力する</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>辞書を作ってみる（英語のみ）<ul>
-<li>仕様<ul>
-<li>登録モード<code>python dictionary.py register 単語　意味</code></li>
-<li>検索モード<code>python dictionary.py search 単語</code></li>
-<li>削除モード<code>python dictionary.py 単語</code></li>
-<li>辞書データはどのようにしても可能<ul>
-<li>例えば：アルファベット順にテキストファイルを分けてそこに保存</li>
+<li>全ての情報(名前、数学/英語の点数、平均点)を出力する</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-</li>
-</ol>
+<div class="codehilite"><pre><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;&quot;</span> <span class="c1"># 名前</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">math</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 数学の点数</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">english</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 英語の点数</span>
+
+    <span class="c1"># 名前をセットするための関数の例</span>
+    <span class="k">def</span> <span class="nf">set_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="c1"># 名前を取得するための関数の例</span>
+    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+
+
 <p><a href="#contents">Contentsに戻る</a></p>
 <p><a name="reference"></a></p>
 <h2>Reference</h2>
