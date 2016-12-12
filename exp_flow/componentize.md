@@ -176,8 +176,10 @@ cp_pwm_ctl.add_output("en_out",1)
 fifo_32 = com.Xillybus_fifo(1,1,"1",32)
 + fifo_32.set_snd_cycle(0)
 - # fifo_32.assign(action = "rcv", sig = "signal_name")
-+ fifo_32.assign(action = "rcv", sig = "dir_in")
-+ fifo_32.assign(action = "rcv", sig = "para_in")
+
+# 各サイクルでレジスタの値がリセットされないようにreset = 0にする
++ fifo_32.assign(action = "rcv", sig = "dir_in", reset = 0)
++ fifo_32.assign(action = "rcv", sig = "para_in, reset = 0)
 # fifo_32.assign(action = "snd", sig = "signal_name")
 cp_pwm_ctl.add_com(fifo_32)
 ```
@@ -226,8 +228,8 @@ cp_pwm_ctl.add_reg("dir_in",1)
 # communication setting
 fifo_32 = com.Xillybus_fifo(1,1,"1",32)
 fifo_32.set_snd_cycle(0)
-fifo_32.assign(action = "rcv", sig = "dir_in")
-fifo_32.assign(action = "rcv", sig = "para_in")
+fifo_32.assign(action = "rcv", sig = "dir_in", reset = 0)
+fifo_32.assign(action = "rcv", sig = "para_in", reset = 0)
 # fifo_32.assign(action = "snd", sig = "signal_name")
 cp_pwm_ctl.add_com(fifo_32)
 
@@ -278,14 +280,4 @@ component_pwm_ctl/
 	|--component_pwm_ctl.py
 	|--ros_package/
 		|--component_pwm_ctl/
-```
-
-
-
-
-```verilog
-//for top module
-output dir_out,
-output en_out,
-input [5:0] dummy
 ```

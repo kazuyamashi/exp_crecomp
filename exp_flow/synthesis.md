@@ -177,3 +177,20 @@ set_property -dict "PACKAGE_PIN N22 IOSTANDARD LVCMOS33" [get_ports "PS_GPIO[39]
 終了したら、以下のようなダイアログが出ます。**Cancel**を選択します。
 
 <img src="pic/complete_synth.png">
+
+# BOOT.binの作成
+
+BOOT.binを作成します。  
+BOOT.binはZedboard上でLinuxをブートするためのブートローダです。
+
+```
+$ ~/exp_dir/bootgen
+$ source /opt/Xilinx/Vivado/2014.4/settings64.sh
+$ cp ../xillinux-eval-zedboard-1.3c/verilog/vivado/xillydemo.runs/impl_1/xillydemo.bit .
+$ python bootgen_zynq.py xillydemo.bit
+```
+
+生成に成功すると`~/exp_dir/bootgen`にBOOT.binができています。
+
+SDカードをPCに挿入し、BOOT.binをZED_BOOTにコピーします。
+
