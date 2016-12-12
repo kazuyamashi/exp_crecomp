@@ -5,18 +5,19 @@
 
 - pwm_ctl.v
 - bootgen.zip
-- xillinux-eval-zedbaord-1.3c_built.tar.gz
+
+また、ハードウェアをダウンロードします。
+以下コマンドで取得するか、[このURL](http://xillybus.com/downloads/xillinux-eval-zedboard-1.3c.zip)からワークスペースにダウンロードしてください。
+
+```
+wget http://xillybus.com/downloads/xillinux-eval-zedboard-1.3c.zip
+```
 
 アーカイブファイルの展開をします。
 
 ```
 $ unzip bootgen.zip
-$ tar zxvf xillinux-eval-zedbaord-1.3c_built.tar.gz
-```
-
-```
-$ ls ~/exp_dir
-pwm_ctl.v bootgen.zip xillinux-eval-zedbaord-1.3c_built.tar.gz
+$ unzip xillinux-eval-zedboard-1.3c.zip
 ```
 
 cReCompが動作するか確認します。
@@ -280,27 +281,7 @@ component_pwm_ctl/
 ```
 
 
-```c
-//for xdc file
-set_property -dict "PACKAGE_PIN W12 IOSTANDARD LVCMOS33" [get_ports "dir_out"]
-set_property -dict "PACKAGE_PIN W11 IOSTANDARD LVCMOS33" [get_ports "en_out"]
-set_property -dict "PACKAGE_PIN V10 IOSTANDARD LVCMOS33" [get_ports "dummy[0]"]
-set_property -dict "PACKAGE_PIN W8 	IOSTANDARD LVCMOS33" [get_ports "dummy[1]"]
-set_property -dict "PACKAGE_PIN V12 IOSTANDARD LVCMOS33" [get_ports "dummy[2]"]
-set_property -dict "PACKAGE_PIN W10 IOSTANDARD LVCMOS33" [get_ports "dummy[3]"]
-set_property -dict "PACKAGE_PIN V9 	IOSTANDARD LVCMOS33" [get_ports "dummy[4]"]
-set_property -dict "PACKAGE_PIN V8 	IOSTANDARD LVCMOS33" [get_ports "dummy[5]"]
 
-
-set_property -dict "PACKAGE_PIN M20 IOSTANDARD LVCMOS33" [get_ports "PS_GPIO[32]"]
-set_property -dict "PACKAGE_PIN M19 IOSTANDARD LVCMOS33" [get_ports "PS_GPIO[33]"]
-set_property -dict "PACKAGE_PIN N20 IOSTANDARD LVCMOS33" [get_ports "PS_GPIO[34]"]
-set_property -dict "PACKAGE_PIN N19 IOSTANDARD LVCMOS33" [get_ports "PS_GPIO[35]"]
-set_property -dict "PACKAGE_PIN P18 IOSTANDARD LVCMOS33" [get_ports "PS_GPIO[36]"]
-set_property -dict "PACKAGE_PIN P17 IOSTANDARD LVCMOS33" [get_ports "PS_GPIO[37]"]
-set_property -dict "PACKAGE_PIN P22 IOSTANDARD LVCMOS33" [get_ports "PS_GPIO[38]"]
-set_property -dict "PACKAGE_PIN N22 IOSTANDARD LVCMOS33" [get_ports "PS_GPIO[39]"]
-```
 
 ```verilog
 //for top module
