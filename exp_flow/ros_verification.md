@@ -6,7 +6,7 @@ SDカードをZedbardに挿入し、ZedbaordとPCをUSBケーブルで接続し�
 以下のコマンドでZedboardへシリアル接続します。
 
 ```
-$ sudo screen /dev/ttyACM0 115200
+$ screen /dev/ttyACM0 115200
 ```
 
 Enterキーを数回押すと、以下のような出力が得られます。
@@ -72,21 +72,21 @@ $ catkin_make
 ```
 $ ifconfig
 eth0      Link encap:Ethernet  HWaddr 00:0a:35:00:01:22  
-          inet addr:192.168.10.226  Bcast:192.168.10.255  Mask:255.255.255.0
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:2658 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:21 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000 
-          RX bytes:303632 (303.6 KB)  TX bytes:2282 (2.2 KB)
-          Interrupt:54 Base address:0xb000 
+		  inet addr:192.168.10.226  Bcast:192.168.10.255  Mask:255.255.255.0
+		  UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+		  RX packets:2658 errors:0 dropped:0 overruns:0 frame:0
+		  TX packets:21 errors:0 dropped:0 overruns:0 carrier:0
+		  collisions:0 txqueuelen:1000 
+		  RX bytes:303632 (303.6 KB)  TX bytes:2282 (2.2 KB)
+		  Interrupt:54 Base address:0xb000 
 
 lo        Link encap:Local Loopback  
-          inet addr:127.0.0.1  Mask:255.0.0.0
-          UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:8 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:8 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:0 
-          RX bytes:592 (592.0 B)  TX bytes:592 (592.0 B)
+		  inet addr:127.0.0.1  Mask:255.0.0.0
+		  UP LOOPBACK RUNNING  MTU:65536  Metric:1
+		  RX packets:8 errors:0 dropped:0 overruns:0 frame:0
+		  TX packets:8 errors:0 dropped:0 overruns:0 carrier:0
+		  collisions:0 txqueuelen:0 
+		  RX bytes:592 (592.0 B)  TX bytes:592 (592.0 B)
 ```
 
 <font color="red">PC上における作業</font>  
@@ -144,7 +144,9 @@ CMakeLists.txt  include  msg  package.xml  scripts
 	- ROSのメッセージによって、FPGAへデータを入出力するためのソフトウェアインターフェイス
 - test_node.py
 	- 生成したROS準拠FPGAコンポーネントの動作確認をするためテストプログラム
+	- [プログラムの詳細な解説](test_node_py.md)
 
+ソフトウェアインターフェイスであるcomponent_pwm_ctl_node.pyを起動することによって、FPGAのデータ待受けを行います。cReCompではコンポーネントへデータを入力(Publish)するためのプログラムも自動生成するため、簡単に動作検証が可能です。
 
 テストプログラム`~/catkin_ws/src/component_pwm_ctl/scripts/test_node.py`を以下のように編集します。
 
@@ -158,27 +160,27 @@ import rospy
 from component_pwm_ctl.msg import Component_pwm_ctlMsg
 
 def component_pwm_ctl_pub():
-        rospy.init_node('component_pwm_ctl_pub', anonymous=True)
-        pub = rospy.Publisher('component_pwm_ctl_input', Component_pwm_ctlMsg, queue_size=100)
+		rospy.init_node('component_pwm_ctl_pub', anonymous=True)
+		pub = rospy.Publisher('component_pwm_ctl_input', Component_pwm_ctlMsg, queue_size=100)
 
-        r = rospy.Rate(1)
-        msg = Component_pwm_ctlMsg()
+		r = rospy.Rate(1)
+		msg = Component_pwm_ctlMsg()
 
-+       msg.input_dir_in = 1
-+       msg.input_para_in = 12000
++		msg.input_dir_in = 1
++		msg.input_para_in = 12000
 
-        while not rospy.is_shutdown():
-                pub.publish(msg)
-                r.sleep()
+		while not rospy.is_shutdown():
+				pub.publish(msg)
+				r.sleep()
 
 def callback(data):
-        # please desicribe your code
-        pass
+		# please desicribe your code
+		pass
 
 def component_pwm_ctl_sub(self):
-        rospy.init_node('component_pwm_ctl_sub', anonymous=True)
-        rospy.Subscriber('component_pwm_ctl_output', Component_pwm_cack)
-        rospy.spin()
+		rospy.init_node('component_pwm_ctl_sub', anonymous=True)
+		rospy.Subscriber('component_pwm_ctl_output', Component_pwm_cack)
+		rospy.spin()
 
 +if __name__ == '__main__':
 +	component_pwm_ctl_pub()

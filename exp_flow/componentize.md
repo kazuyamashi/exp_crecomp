@@ -89,6 +89,7 @@ Generate config.py successfully
 作成に成功すると`~/exp_dir/config.py`ができ、以下のような内容になっているはずです。
 
 ```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import crecomp.userlogic as ul
@@ -197,6 +198,8 @@ cp_pwm_ctl.add_output("en_out",1)
 - ソフトウェアからデータを受け取るため、以下の2つの信号を入力用通信路へと接続
 	- dir_in
 	- para_in
+
+また、入力用通信路と接続する設定をした**dir_in**と**para_in**へはROSのメッセージによってデータ入力ができるようになります。
 
 ```diff
 # communication setting
