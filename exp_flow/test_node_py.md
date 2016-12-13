@@ -89,4 +89,4 @@ if __name__ == '__main__':
 	component_pwm_ctl_pub()
 ```
 
-Python特有の記述で、メイン関数の部分です。
+Python特有の記述で、メイン実行をする部分です。

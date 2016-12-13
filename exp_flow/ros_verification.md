@@ -41,14 +41,14 @@ Zedboardの時間の設定をします。
 # date MMDDhhmm2016
 ```
 
-Zedboardのコンソール上であらかじめ用意さてあるユーザ**ubuntu**としてログインします。  
+Zedboardのコンソール上で、あらかじめ用意されてあるユーザ**ubuntu**としてログインします。  
 
 ```
 # su ubuntu
 $ cd
 ```
 
-ubuntuでログインできたら、ROSの設定をします。
+ubuntuでログインできたら、ROSのPATH設定をします。
 
 ```
 $ source /opt/ros/indigo/setup.bash
@@ -92,7 +92,7 @@ lo        Link encap:Local Loopback
 <font color="red">PC上における作業</font>  
 PCで生成したコンポーネントをZedboardに転送します。  
 IP_ADDRESSは直前にZedboard上において調べたIPアドレスに置き換えてください。  
-また、パスワードを聞かれます。パスワードは<font color="red">**ubuntu**</font>です。
+また、パスワードを要求されます。パスワードは<font color="red">**ubuntu**</font>です。
 
 ```
 $ cd ~/exp_dir/component_pwm_ctl/software/ros_package/
@@ -147,10 +147,9 @@ CMakeLists.txt  include  msg  package.xml  scripts
 	- 生成したROS準拠FPGAコンポーネントの動作確認をするためテストプログラム
 	- [プログラムの詳細な解説](test_node_py.md)
 
-ソフトウェアインターフェイスであるcomponent_pwm_ctl_node.pyを起動することによって、FPGAのデータ待受けを行います。cReCompではコンポーネントへデータを入力(Publish)するためのプログラムも自動生成するため、簡単に動作検証が可能です。
+ソフトウェアインターフェイスであるcomponent_pwm_ctl_node.pyを起動することによって、FPGAへのデータ入力待ち受けを行います。cReCompではコンポーネントへデータを入力(Publish)するためのプログラムも自動生成するため、簡単に動作検証が可能です。
 
 テストプログラム`~/catkin_ws/src/component_pwm_ctl/scripts/test_node.py`を以下のように編集します。
-
 
 ```diff
 #!/usr/bin/python
@@ -285,7 +284,7 @@ ubuntu@ubuntu-armhf:~/$
 $ rosrun component_pwm_ctl component_pwm_ctl.py
 ```
 
-ここで、ssh接続などでコンソールをもう1つ起動します。そのコンソール上で以下のコマンドでテストプログラムを起動します。
+ここで、ssh接続などでコンソールをもう1つ起動します。そのコンソール上において以下のコマンドでテストプログラムを起動します。
 
 ```
 $ cd ~/catkin_ws
@@ -295,3 +294,5 @@ $ rosrun component_pwm_ctl test_node.py
 
 `test_node.py`を起動して、モータが動き始めたら動作確認は成功です。  
 2つのプログラムは`Ctl + c`で停止します。
+
+[Topへ戻る](readme.md)

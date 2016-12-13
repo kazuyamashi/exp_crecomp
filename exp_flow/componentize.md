@@ -57,6 +57,11 @@ Options:
 | output |  1 | dir_out | モータの回転方向                   |
 | output |  1 | en_out  | PWM制御の信号                      |
 
+また、パラメータの値域は以下の通りです。  
+**para_inは入力値を大きくすればするほど低出力になることに注意してください。**
+
+- dir_in : 1(正回転) or 0(逆回転)
+- para_in : 0 〜 19999 (高出力〜低出力)
 
 FPGAボード(Zedboard)にDigilentのモータドライバ(PmodHB3)を装着しモータを接続します。モータドライバへ適切な電気信号を出力することで、モータを制御することができます。  
 
@@ -224,7 +229,6 @@ import crecomp.component as cp
 import crecomp.verilog as vl
 import crecomp.communication as com
 
-
 class Pwm_ctl(ul.Util):
 
 	def __init__(self,uut):
@@ -311,3 +315,5 @@ component_pwm_ctl/
 	|--ros_package/
 		|--component_pwm_ctl/
 ```
+
+[Topへ戻る](readme.md)

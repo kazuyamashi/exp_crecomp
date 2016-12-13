@@ -197,3 +197,4 @@ $ python bootgen_zynq.py xillydemo.bit
 
 SDカードをPCに挿入し、BOOT.binをZED_BOOTにコピーします。
 
+[Topへ戻る](readme.md)

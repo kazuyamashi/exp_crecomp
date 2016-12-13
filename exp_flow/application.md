@@ -1,5 +1,7 @@
 # コンポーネントを用いて応用開発 <br>(Zedboard上における作業)
 
+cReCompによって生成したコンポーネントを用いて任意のモータ制御をおこなってみましょう。
+
 以下のコマンドでROSのワークスペースにROSのパッケージの雛形を作成します。
 
 ```
@@ -15,7 +17,7 @@ $ mkdir scripts; cd scripts
 $ touch motor_ctl.py; chmod +x motor_ctl.py
 ```
 
-Zedboard状のエディタで`motor_ctl.py`を開き、以下の内容をコピー＆ペーストします。  
+Zedboard上のエディタで`motor_ctl.py`を開き、以下の内容をコピー＆ペーストします。  
 (エディタはemacs、nano、viがインストールされています。)
 
 ```python
@@ -40,7 +42,6 @@ def motor_ctl():
 		pub.publish(msg)
 		r.sleep()
 
-
 if __name__ == '__main__':
 	motor_ctl()
 ```
@@ -61,7 +62,6 @@ if __name__ == '__main__':
 - ROS特有の記述に関してはコンポーネントの[テストプログラム解説](test_node_py.md)を参照
 - Component_pwm_ctlMsg（cReCompが生成したメッセージタイプ）が持つ変数はinput_dir_inとinput_para_in
 - Pythonの文法に関しては事前導入資料の[Pythonチュートリアル](../pre_instruction/md/python_tutorial.md)を参照
-
 
 プログラムの記述が終わったら、以下のコマンドでビルドします。
 
