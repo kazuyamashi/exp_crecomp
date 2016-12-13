@@ -139,9 +139,10 @@ CMakeLists.txt  include  msg  package.xml  scripts
 また、`scripts`下にはcReCompによって生成されたプログラムがあります。
 
 - bridge.py
-	- Xillybusのデバイスドライバにアクセスするためのラッパソフトウェア
+	- Xillybusのデバイスドライバにアクセスするためのライブラリモジュール
 - component_pwm_ctl_node.py
-	- ROSのメッセージによって、FPGAへデータを入出力するためのソフトウェアインターフェイス
+	- ROSのメッセージによって、FPGAへデータを入出力するためのソフトウェアインターフェイスライブラリ
+	- [モジュールの詳細な解説](component_pwm_ctl_py.md)
 - test_node.py
 	- 生成したROS準拠FPGAコンポーネントの動作確認をするためテストプログラム
 	- [プログラムの詳細な解説](test_node_py.md)
