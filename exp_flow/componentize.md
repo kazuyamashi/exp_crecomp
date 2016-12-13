@@ -78,7 +78,9 @@ FPGAボード(Zedboard)にDigilentのモータドライバ(PmodHB3)を装着し�
 - 機能2：FPGA上の回路へ、ソフトウェアからパラメータを渡せるようにする
 - 機能3：ROSのメッセージによって回路へのパラメータを渡せるようにする
 
-<center><img src="pic/pwm_comp.png" width="80%"></center>
+<center>
+<img src="pic/pwm_comp.png" width="80%">
+</center>
 
 図のようにコンポーネントはソフトウェアとハードウェアの混合システムとなっています。  
 特に、cReCompではハードウェアインターフェイスとソフトウェアインターフェイスを設定に応じて自動生成することができ、開発者の皆さんはVerilog HDLの記述やデータをやり取りするためのソフトウェア記述はいりません。  

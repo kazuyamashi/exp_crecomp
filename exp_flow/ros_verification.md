@@ -33,7 +33,8 @@ Welcome to Ubuntu 14.04 LTS (GNU/Linux 3.18.0-xilinx-46110-gd627f5d armv7l)
 root@ubuntu-armhf:~# 
 ```
 
-<font color="red">Zedboard上における作業</font>  
+<font color="red">**Zedboard上における作業**</font>  
+
 Zedboardの時間の設定をします。  
 書式：`date MMDDhhmm2016 日付時間年`
 
@@ -89,7 +90,8 @@ lo        Link encap:Local Loopback
 		  RX bytes:592 (592.0 B)  TX bytes:592 (592.0 B)
 ```
 
-<font color="red">PC上における作業</font>  
+<font color="red">**PC上における作業**</font>  
+
 PCで生成したコンポーネントをZedboardに転送します。  
 IP_ADDRESSは直前にZedboard上において調べたIPアドレスに置き換えてください。  
 また、パスワードを要求されます。パスワードは<font color="red">**ubuntu**</font>です。
@@ -106,7 +108,7 @@ component_pwm_ctl_node.py                     100% 1204     1.2KB/s   00:00
 test_node.py                                  100%  671     0.7KB/s   00:00
 ```
 
-<font color="red">Zedboard上における作業</font> 
+<font color="red">**Zedboard上における作業**</font> 
 
 PCから転送したディレクトリをROSのワークスペースにコピーします。
 
