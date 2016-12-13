@@ -1,8 +1,11 @@
 被験者実験にご協力いただき、ありがとうございます。
-資料はindex.htmlをwebブラウザにてお読みいただけます。
+資料はindex.htmlからwebブラウザにてお読みいただけます。
 
 なお、チュートリアルのなかにはこちらで用意したPC環境を使用していただくか、
-cReComp(https://github.com/kazuyamashi/cReComp.git)をインストールしたPCにおいて行うものがあります。
+cReCompをインストールしたPCにおいて行うものがあります。
 現在、cReCompはMacOSのものかUbuntuにおける動作を確認しています。
+
+cReComp:
+https://github.com/kazuyamashi/cReComp.git
 
 ご不明点などありましたらkazushi@virgo.is.utsunomiya-u.ac.jpにお申し付けください。

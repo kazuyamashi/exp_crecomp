@@ -293,4 +293,5 @@ $ source devel/setup.bash
 $ rosrun component_pwm_ctl test_node.py
 ```
 
-`test_node.py`を起動して、モータが動き始めたら動作確認は成功です。
+`test_node.py`を起動して、モータが動き始めたら動作確認は成功です。  
+2つのプログラムは`Ctl + c`で停止します。

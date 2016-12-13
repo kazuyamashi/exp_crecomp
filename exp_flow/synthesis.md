@@ -18,6 +18,9 @@ $ vivado
 前の作業で生成したハードウェアインターフェイスをインポートします。
 
 <img src="pic/add_src.png" width = "70%">
+
+**Add files**を選択します。
+
 <img src="pic/add_src2.png" width = "70%">
 
 `~/exp_dir/component_pwm_ctl/hardware`内の`component_pwm_ctl.v`と`pwm_ctl.v`を選択してOKします。
