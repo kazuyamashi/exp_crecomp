@@ -18,8 +18,6 @@
 	- ハードウェア内で得られる処理結果をソフトウェアへ返す
 - **Programmable SoC (System on Chip)**  
 	FPGAとCPUが1枚のチップに集積されているもの。本実験では**ARMプロセッサとFPGAを集積したXilinu社のZynq-7020を搭載したZedboard**というFPGAボードを使用する。
-- **Xillinux**  
-	Xillybus社からリリースされているFPGA-ARM間のデータ通信が可能な,Zedboard用のLinuxディストリビューション(Ubuntu 12.04 LTS)。
 - **ROS = Robot Operating System**  
 	Open Source Robotics Foundationが開発・メンテナンスを行っており、ロボット開発者を支援するためのソフトウェアプラットフォーム。具体的にはロボットに必要なソフトウェアを開発するためのライブラリ，通信の仕組みを提供する。同時にビルドツールでもありワークディレクトリのビルド対象を全て一括でビルドできるcatkin_makeというコマンドを用いてビルドを行う。
 - **自律移動型ロボット**  

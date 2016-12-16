@@ -95,6 +95,8 @@ Generate config.py successfully
 
 作成に成功すると`~/exp_dir/config.py`ができ、以下のような内容になっているはずです。
 
+
+
 ```python
 #!/usr/bin/python
 # -*- coding: utf-8 -*-

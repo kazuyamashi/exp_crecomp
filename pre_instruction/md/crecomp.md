@@ -16,7 +16,7 @@ assign result = arg_x + arg_y;
 endmodule
 ```
 
-この回路はinput信号である、`arg_x`、`arg_y`に入力値を与えることで、output信号`result`に加算した結果を返すという簡単な機能を持ちます。  
+この回路記述はinput信号である、`arg_x`、`arg_y`に入力値を与えることで、output信号`result`に加算した結果を返すという簡単な機能を持ちます。  
 
 また、下の図はこのチュートリアルで生成するコンポーネントのシステム構成です。
 
@@ -79,15 +79,21 @@ cp_adder = cp.Component("component_adder")
 # User logicのクラスのインスタンス
 adder = Adder("uut")
 
+# User Logicが持つインターフェイス信号(input, output, inout)が
+# 自動的に追加される
 # adding signal for connection to user logic
 cp_adder.add_input("arg_x",16)
 cp_adder.add_input("arg_y",16)
 cp_adder.add_output("result",32)
 
+# User Logicが持つインターフェイス信号に応じて
+# 自動的に追加される内部信号
 # cp_adder.add_reg("arg_x",16)
 # cp_adder.add_reg("arg_y",16)
 # cp_adder.add_wire("result",32)
 
+
+# ソフトウェアとハードウェアが通信するための設定記述
 # communication setting
 fifo_32 = com.Xillybus_fifo(1,1,"1",32)
 # fifo_32.assign(action = "rcv", sig = "signal_name")
@@ -100,6 +106,8 @@ cp_adder.add_com(fifo_32)
 # fifo_8.assign(action = "snd", sig = "signal_name")
 # cp_adder.add_com(fifo_8)
 
+# ユーザロジックのインスタンスに対して，
+# ハードウェアインターフェイスの信号をアサインする設定
 # connection between software and user logic
 adder.assign("arg_x","arg_x")
 adder.assign("arg_y","arg_y")

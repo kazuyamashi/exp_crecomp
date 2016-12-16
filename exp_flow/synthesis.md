@@ -99,7 +99,7 @@ cReCompで生成したハードウェアを接続します。
 ```
 
 また、同じファイル内の上部にあるインターフェイスに信号を追加します。  
-19行目あたりを以下のように編集します。
+18行目あたりを以下のように編集します。
 
 ```diff
 module xillydemo
@@ -120,15 +120,13 @@ module xillydemo
   input   audio_bclk,
   input   audio_lrclk,
 
-  output smb_sclk,
-  inout  smb_sdata,
--  output [1:0] smbus_addr
-+  output [1:0] smbus_addr, //コンマ追加
-
 + output dir_out,
 + output en_out,
-+ output [5:0] dummy
++ output [5:0] dummy,
 
+  output smb_sclk,
+  inout  smb_sdata,
+  output [1:0] smbus_addr
   );
 ```
 
@@ -187,7 +185,7 @@ BOOT.binを作成します。
 BOOT.binはZedboard上でLinuxをブートするためのブートローダです。
 
 ```
-$ ~/exp_dir/bootgen
+$ cd ~/exp_dir/bootgen
 $ source /opt/Xilinx/Vivado/2014.4/settings64.sh
 $ cp ../xillinux-eval-zedboard-1.3c/verilog/vivado/xillydemo.runs/impl_1/xillydemo.bit .
 $ python bootgen_zynq.py xillydemo.bit
