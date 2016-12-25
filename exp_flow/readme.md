@@ -40,7 +40,7 @@ Step5が終了した時点でアンケート記入をしていただきます。
 
 ## 実験手順
 [Step1: cReCompを用いてVerilog HDLで記述されたハードウェア回路をコンポーネント化](componentize.md)  
-[Step2: ハードウェアの論理合成](synthesis.md)  
+[Step2: ROS準拠FPGAコンポーネントのハードウェアの作成](synthesis.md)  
 [Step3: コンポーネントを用いてモータの制御](ros_verification.md)  
 [Step4: コンポーネントを用いて応用開発](application.md)  
 [Step5: FPGAとCPUをつなぐインターフェイスの記述体験](interface_description.md)  
