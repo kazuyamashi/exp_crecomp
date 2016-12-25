@@ -1,9 +1,13 @@
-# ROS上でコンポーネントの動作確認する
+# コンポーネントを用いてモータの制御
+
+## Zedboardの起動
 
 SDカードをZedbardに挿入し、ZedbaordとPCをUSBケーブルで接続します。
-接続したら、起動します。  
+接続したら、起動（電源ON）します。  
 
-以下のコマンドでZedboardへシリアル接続します。
+<font color="red">**PC上における作業**</font>  
+
+ターミナル（端末）を起動し，以下のコマンドでZedboardへシリアル接続します。
 
 ```
 $ screen /dev/ttyACM0 115200
@@ -33,8 +37,6 @@ Welcome to Ubuntu 14.04 LTS (GNU/Linux 3.18.0-xilinx-46110-gd627f5d armv7l)
 root@ubuntu-armhf:~# 
 ```
 
-<font color="red">**Zedboard上における作業**</font>  
-
 Zedboardの時間の設定をします。  
 書式：`date MMDDhhmm2016 日付時間年`
 
@@ -48,6 +50,10 @@ Zedboardのコンソール上で、あらかじめ用意されてあるユーザ
 # su ubuntu
 $ cd
 ```
+
+## ROSのワークスペース作成
+
+<font color="red">**Zedboardのコンソール上における作業**</font>  
 
 ubuntuでログインできたら、ROSのPATH設定をします。
 
@@ -108,7 +114,7 @@ component_pwm_ctl_node.py                     100% 1204     1.2KB/s   00:00
 test_node.py                                  100%  671     0.7KB/s   00:00
 ```
 
-<font color="red">**Zedboard上における作業**</font> 
+<font color="red">**Zedboardのコンソール上における作業**</font> 
 
 PCから転送したディレクトリをROSのワークスペースにコピーします。
 

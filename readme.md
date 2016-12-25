@@ -9,3 +9,21 @@
 - 備考
 	- 実験前に事前導入資料をお渡ししますので、あらかじめ、一読していただく必要があります。
 	- 実験にご協力いただける場合、研究室ミーティングの後、日程調整を行います。
+
+exp1@192.168.8.11
+exp2@192.168.8.13
+exp3@192.168.8.12
+exp4@192.168.8.16
+
+sudo apt-get install python-pip iverilog -y 
+git clone https://github.com/kazuyamashi/cReComp.git
+
+git clone https://github.com/PyHDI/pyverilog.git
+cd pyverilog/
+sudo python setup.py install
+
+git clone https://github.com/PyHDI/veriloggen.git
+cd veriloggen/
+python setup.py install
+
+sudo apt-get install python-jinja2

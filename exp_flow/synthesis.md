@@ -1,4 +1,6 @@
-# ハードウェアの論理合成
+# ROS準拠FPGAコンポーネントのハードウェアの作成
+
+## ハードウェアの論理合成
 
 前の作業において展開したハードウェアのプロジェクトを開きます。  
 新しい端末(ターミナル)を起動し、以下のコマンドを実行します。
@@ -179,7 +181,7 @@ set_property -dict "PACKAGE_PIN N22 IOSTANDARD LVCMOS33" [get_ports "PS_GPIO[39]
 
 <img src="pic/complete_synth.png">
 
-# BOOT.binの作成
+## BOOT.binの作成
 
 BOOT.binを作成します。  
 BOOT.binはZedboard上でLinuxをブートするためのブートローダです。
