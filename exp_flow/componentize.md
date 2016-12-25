@@ -181,6 +181,8 @@ cp_pwm_ctl.componentize()
 編集する箇所を解説していきます．まず、コンポーネントのハードウェアインターフェイスに必要な信号を追加します．  
 特に、**モータへの出力に必要なOutput信号**と**ソフトウェアからパラメータをもらうためのregister信号**が必要となります．
 
+<center><img src="pic/add_reg_output.png" width="80%"></center>
+
 ```diff
 # adding signal for connection to user logic
 -cp_pwm_ctl.add_input("clk",1)
