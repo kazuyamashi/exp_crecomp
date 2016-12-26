@@ -289,7 +289,7 @@ ubuntu@ubuntu-armhf:~/$
 コンポーネントを起動します。
 
 ```
-$ rosrun component_pwm_ctl component_pwm_ctl.py
+$ rosrun component_pwm_ctl component_pwm_ctl_node.py
 ```
 
 ここで、ssh接続などでコンソールをもう1つ起動します。そのコンソール上において以下のコマンドでテストプログラムを起動します。

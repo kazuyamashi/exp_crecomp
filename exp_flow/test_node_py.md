@@ -75,7 +75,8 @@ def component_pwm_ctl_pub():
 - `pub = rospy.Publisher('component_pwm_ctl_input', Component_pwm_ctlMsg, queue_size=100)`
 	- Publishするための設定をします。`Publisher()`の引数は左からPublishするための**トピック名**、**メッセージタイプ**、**キューサイズ**です。したがって、この記述で、component_pwm_ctl_inputという名前のトピックにComponent_pwm_ctlMsg型のメッセージをPublishするということになります。
 - `r = rospy.Rate(1)`
-	- 引数は1秒間にループ処理（スリープ）を何回するかの周波数を与えます。上記の記述では**引数に**1**を与えていることで、1秒に1回メッセージをPublishしています。**
+	- 引数はループ処理（スリープ）を何回するかの周波数を与えます。上記の記述では**引数に**1**を与えていることで、1秒に1回メッセージをPublishしています。**
+	- 例えば，引数を0.5にすれば，2秒に1回Publishすることになります．
 - `msg = Component_pwm_ctlMsg()`
 	- cReCompによって自動生成された`Component_pwm_ctlMsg`型のメッセージのインスタンスを作成しています。
 	- **msg.input_dir_in** : Component_pwm_ctlMsgがもつ、ユーザロジックの信号`dir_in`へのデータ入力用の変数

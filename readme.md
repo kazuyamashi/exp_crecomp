@@ -31,3 +31,8 @@ python setup.py install
 
 sudo apt-get install python-jinja2
 ```
+
+```
+scp .zip Kzushi@192.168.8.14:/Users/Kzushi/work_space/data_exp/pc/.
+scp .zip Kzushi@192.168.8.14:/Users/Kzushi/work_space/data_exp/zedboard/.
+```
