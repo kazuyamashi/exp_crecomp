@@ -10,7 +10,7 @@ SDカードをZedbardに挿入し、ZedbaordとPCをUSBケーブルで接続し�
 ターミナル（端末）を起動し，以下のコマンドでZedboardへシリアル接続します。
 
 ```
-$ screen /dev/ttyACM0 115200
+$ sudo screen /dev/ttyACM0 115200
 ```
 
 Enterキーを数回押すと、以下のような出力が得られます。

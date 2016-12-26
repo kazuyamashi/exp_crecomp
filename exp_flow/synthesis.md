@@ -62,9 +62,9 @@ $ vivado
 
 
 cReCompで生成したハードウェアを接続します。  
-**Design Sources**の**xillydemo**をダブルクリックで開きます。
+**Design Sources**の**xillydemo**をダブルクリックで**xillydemo.v**開きます。
 
-262行目から以下のように編集します。`ctl+/`でコメントアウト・解除ができます。
+**xillydemo.v**の262行目から以下のように編集します。`ctl+/`でコメントアウト・解除ができます。
 
 ```diff
 // 262行目から273行目までコメントアウト
@@ -137,8 +137,7 @@ module xillydemo
 
 <img src="pic/select_xdc.png" width = "50%">
 
-90行目あたりを以下のように編集します。
-
+**xillydemo.xdc**の90行目あたりを以下のように編集します。
 
 ```c
 # 90行目からコメントアウト
