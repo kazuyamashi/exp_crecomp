@@ -239,6 +239,8 @@ fifo_32 = com.Xillybus_fifo(1,1,"1",32)
 cp_pwm_ctl.add_com(fifo_32)
 ```
 
+`fifo_32.assign()`は通信路へ，信号を接続するためのメソッドです．この操作を行わないとFPGAとCPU間に置けるデータ通信はできません．
+
 以上の設定記述を終えると、`config.py`は以下のようになっているはずです．
 
 ```python
@@ -308,10 +310,69 @@ cp_pwm_ctl.componentize()
 ```
 
 コンポーネント化を実行します．以下のコマンドを実行してください．  
-`Generate component successfully`が出力されたら成功です．
 
 ```
 $ python config.py
+```
+
+途中，以下のように聞かれますが，**"y"**と答えてください
+
+```
+The configuration about data sending is nothing.
+Would current configuration is okay with you? [y/n]
+> y
+```
+
+`Generate component successfully`が出力されたら成功です．
+
+```
+===== Component name =====
+component_pwm_ctl
+===== input =====
+Input 32 din_32
+Input 1 wr_en_32
+Input 1 rd_en_32
+Input 1 clk
+Input 1 rst
+
+===== output =====
+Output 1 dir_out
+Output 1 en_out
+Output 32 dout_32
+Output 1 full_32
+Output 1 empty_32
+
+===== inout =====
+
+===== reg =====
+Reg 15 para_in
+Reg 1 dir_in
+Reg 4 state_32
+Reg 1 rcv_en_32
+Reg 1 snd_en_32
+
+===== wire =====
+Wire 32 rcv_data_32
+Wire 1 data_empty_32
+Wire 32 snd_data_32
+Wire 1 data_full_32
+
+===== usrlogic =====
+pwm_ctl
+
+===== communication =====
+Xillybus_fifo 32
+rcv cycle 1
+rcv signal list:
+dir_in
+para_in
+snd cycle 0
+snd signal list: switch condition 1
+
+
+
+===== ROS package generation =====
+True
 Generate component successfully
 ```
 

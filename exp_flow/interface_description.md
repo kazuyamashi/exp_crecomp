@@ -21,7 +21,7 @@ cReCompを用いずに、ユーザロジックとソフトウェアとで、デ�
 `timescale 1ns / 1ps
 
 module component_pwm_ctl(
-input [32:0] din_32,
+input [31:0] din_32,
 input wr_en_32,
 input rd_en_32,
 input clk,
@@ -29,20 +29,20 @@ input rst,
 
 output dir_out,
 output en_out,
-output [32:0] dout_32,
+output [31:0] dout_32,
 output full_32,
 output empty_32
 );
 
-reg [15:0] para_in;
+reg [14:0] para_in;
 reg dir_in;
 reg [3:0] state_32;
 reg rcv_en_32;
 reg snd_en_32;
 
-wire [32:0] rcv_data_32;
+wire [31:0] rcv_data_32;
 wire data_empty_32;
-wire [32:0] snd_data_32;
+wire [31:0] snd_data_32;
 wire data_full_32;
 
 pwm_ctl uut(
@@ -107,7 +107,7 @@ always @(posedge clk)begin
 	end
 	else if (rcv_en_32)begin
 		dir_in <= rcv_data_32[0:0];
-		para_in <= rcv_data_32[15:1];
+		para_in <= rcv_data_32[14:1];
 	end
 	else begin
 	end
